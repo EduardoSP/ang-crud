@@ -6,11 +6,11 @@
       </h1>
     </div>
     <div class="col-sm-4">
-      <div class="alert alert-success alert-dismissable">
-        <a href="" class="close">
+      <div class="alert alert-success alert-dismissable *ngIf=msg">
+        <a href="" class="close" (click)="closeAlert()" >
           &times;
         </a>
-        mensaje aqui
+        {{msg}}
       </div>
     </div>
   </div>
@@ -83,10 +83,10 @@
             <td>{{employee.position}}</td>
             <td>{{employee.email}}</td>
             <td>
-              <a (click)="editEmployeed(i)" class="btn btn-success">
+              <a (click)="editEmployee(i)" class="btn btn-success">
                 Edit
               </a>
-              <a (click)="deleteEmployeed(i)" class="btn btn-danger">
+              <a (click)="deleteEmployee(i)" class="btn btn-danger">
                 Delete
               </a>
             </td>
@@ -99,7 +99,7 @@
 
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" [hidden]="hideUpdate">
         <h2>Update Data:</h2>
         <form class="form-horizontal">
           <div class="form-group">
